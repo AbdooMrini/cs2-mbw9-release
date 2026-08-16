@@ -12,17 +12,41 @@ External CS2 cheat with DirectX 11 overlay + ImGui, NTAPI memory reads, and a pr
    - `LOGO.png` — menu logo (required)
 2. Place all three files in the **same folder**.
 
+## Requirements
+
+### System
+- **OS**: Windows 10 (1903+) or Windows 11 (x64 only)
+- **CPU**: x64 processor (AVX2 recommended for best performance)
+- **GPU**: DirectX 11 compatible (any GPU from 2012+)
+- **RAM**: 4 GB minimum
+
+### Software
+- **Counter-Strike 2** installed and running
+- **Steam** logged in
+- **Administrator privileges** required (to access CS2 process memory via NTAPI)
+
+### Files
+All three files must be in the **same folder**:
+| File | Required | Purpose |
+|------|----------|---------|
+| `External.exe` | Yes | The cheat binary |
+| `fa-solid-900.ttf` | Yes | FontAwesome icon font for the menu UI |
+| `LOGO.png` | Yes | Logo displayed in the menu header and sidebar |
+
+### Notes
+- No additional drivers or DLLs needed — the cheat uses direct NTAPI syscalls (`NtReadVirtualMemory`) from usermode
+- No Visual C++ Redistributable needed — the binary is statically linked (`/MT`)
+- The overlay uses `WDA_EXCLUDEFROMCAPTURE` — it is invisible to screen recording/streaming software (OBS, Discord, etc.)
+- Windows Defender may flag the exe — add an exclusion if needed
+
 ## Usage
 
-1. Launch **Counter-Strike 2**.
-2. Run **`External.exe`** as **Administrator**.
-3. Press **`INSERT`** to open/close the menu.
-4. Configure features from the menu tabs.
-
-### Requirements
-- Windows 10/11 x64
-- CS2 running
-- Administrator privileges
+1. Place `External.exe`, `fa-solid-900.ttf`, and `LOGO.png` in the same folder.
+2. Launch **Counter-Strike 2** and enter the main menu.
+3. Right-click **`External.exe`** → **Run as administrator**.
+4. Press **`INSERT`** to open/close the menu.
+5. Configure features from the menu tabs.
+6. Join a game and enjoy.
 
 ### Menu Controls
 | Key | Action |
