@@ -1,4 +1,4 @@
-# mbw9 — CS2 External Cheat (Premium Build v3.2)
+# mbw9 — CS2 External Cheat (Premium Build v3.2 - Beta)
 
 External CS2 cheat with DirectX 11 overlay + ImGui, NTAPI memory reads, and a premium dark menu.
 
