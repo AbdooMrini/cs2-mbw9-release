@@ -1,0 +1,6 @@
+backup/
+back up update/
+dialog_path.ini
+external_config.ini
+*.pdb
+*.ini

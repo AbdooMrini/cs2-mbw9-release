@@ -1,0 +1,17 @@
+{
+  "mapName": "de_dust2",
+  "demo": false,
+  "localPlayer": {"x": 2995.893555, "y": -168.000000, "z": 1608.031372, "yaw": -178.000153, "team": 2},
+  "players": [
+    {"id": 2, "name": "Faultline", "team": 3, "health": 100, "weapon": "FAMAS", "x": -801.650696, "y": -788.785156, "z": 1612.031250, "yaw": -16.104248, "isLocal": false},
+    {"id": 3, "name": "Vypa", "team": 3, "health": 52, "weapon": "P2000", "x": -375.708374, "y": -1096.966064, "z": 1612.030151, "yaw": 34.259827, "isLocal": false},
+    {"id": 4, "name": "Orin", "team": 2, "health": 100, "weapon": "P90", "x": 2246.603027, "y": -524.815735, "z": 1614.090454, "yaw": -160.366058, "isLocal": false},
+    {"id": 5, "name": "Orlow", "team": 2, "health": 100, "weapon": "XM1014", "x": 1858.366089, "y": 164.701721, "z": 1610.711304, "yaw": 176.904266, "isLocal": false},
+    {"id": 6, "name": "Han", "team": 3, "health": 100, "weapon": "P2000", "x": -597.579285, "y": -483.344788, "z": 1681.600830, "yaw": 158.272827, "isLocal": false},
+    {"id": 7, "name": "Sam", "team": 3, "health": 100, "weapon": "P2000", "x": -886.170471, "y": -40.058353, "z": 1612.031250, "yaw": 95.201355, "isLocal": false},
+    {"id": 8, "name": "Wiscar", "team": 2, "health": 100, "weapon": "Nova", "x": 2152.504395, "y": 570.582764, "z": 1608.031250, "yaw": 77.668518, "isLocal": false},
+    {"id": 9, "name": "Imaru", "team": 3, "health": 43, "weapon": "AWP", "x": -767.902222, "y": -611.914917, "z": 1612.031250, "yaw": 98.850861, "isLocal": false},
+    {"id": 10, "name": "Comb", "team": 2, "health": 100, "weapon": "MAC-10", "x": 651.164734, "y": 1021.629517, "z": 1700.031250, "yaw": 94.580627, "isLocal": false}
+  ],
+  "bomb": {"state": "None", "x": 0.000000, "y": 0.000000, "z": 0.000000, "timer": -1.000000, "site": "B"}
+}
