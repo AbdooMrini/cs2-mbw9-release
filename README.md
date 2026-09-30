@@ -1,21 +1,8 @@
-# mbw9 — CS2 External Cheat (Premium Build v3.3)
+# mbw9 — CS2 External Cheat (Premium Build v3.2 - Beta)
 
 External CS2 cheat with DirectX 11 overlay + ImGui, NTAPI memory reads, and a premium dark menu.
 
 ![Menu](menu-image.png)
-
-## Changelog
-
-### v3.3 — Sep 30 2026
-- **CS2 Update sync** — Updated for the Sep 30 CS2 patch (MISC section)
-  - Fixed pixel-gaps in various Rush rooms *(map geometry, Valve-side)*
-  - Clipping adjustments in T/CT Castle rooms *(map geometry, Valve-side)*
-- Silent Reload header updated to reflect Sep 30 update
-- Build date & version bumped to v3.3
-
-### v3.2 — Aug 2026
-- Initial public release
-
 
 ## Download
 
@@ -117,10 +104,8 @@ All three files must be in the **same folder**:
 - Auto Bunny Hop with auto strafe
 - Sniper crosshair overlay
 - No Flash (configurable alpha)
-- Silent Reload (hold-reload mechanic, enemies can't hear you)
 - Spectator list
 - Stream proof (overlay excluded from screen capture)
-- CS2 Update notes panel (Sep 30 2026 patch)
 
 ### Performance
 - Per-tick entity cache (125 Hz, seqlock-protected)
