@@ -159,4 +159,4 @@ Join the community Discord server for updates, profiles, and assistance:
 
 ## ⚠️ Disclaimer
 
-This project is created strictly for **educational and reverse-engineering research purposes**. Using third-party software in online matchmaking violates Valve's Terms of Service and may result in account penalties. Use at your own risk.
+This project is created strictly for **educational and reverse-engineering research purposes**.
