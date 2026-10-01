@@ -13,7 +13,7 @@
   Equipped with DirectX 11 rendering, ultra-low latency NTAPI memory reads, full tactical radar, smart aimbot, and customizable crosshairs.
 </p>
 
-[![Discord](https://img.shields.io/badge/Join%20our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/A34uD5RKa)
+[![Discord](https://img.shields.io/badge/Join%20our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/j88M4gwdG)
 
 ---
 
