@@ -166,8 +166,15 @@ Application externe CS2 (overlay DirectX 11 + ImGui) avec lecture mémoire NTAPI
 - Enable Bunny Hop
 - Auto Strafe (Grand Pas) + strafe sensitivity
 
-**Crosshair**
-- Sniper Crosshair (length, gap, thickness, couleur)
+**Crosshair  [Sep 30 2026 Update]**
+- Enable Custom Crosshair
+- Always Visible (All Weapons)
+- Style: Classic Cross / Static Quadrant (NEW — Sep 30 2026)
+- Length / Gap (negative gaps now allowed) / Thickness
+- Color (alpha bar)
+- Outline: enabled, outline thickness, outline color (NEW — Sep 30 2026)
+- Scope Dot: enabled, scale, color (NEW — Sep 30 2026, in share code)
+- Grenade crosshair during freeze time (NEW — Sep 30 2026, insta-smokes)
 
 **No Flash**
 - Enable No Flash + flash alpha
