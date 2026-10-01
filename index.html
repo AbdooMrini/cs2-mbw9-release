@@ -1,266 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mbw9 — External CS2 v3.3</title>
-  <meta name="description"
-    content="mbw9: external overlay for Counter-Strike 2. Usermode NtReadVirtualMemory, DirectX 11 + ImGui, radar, aimbot, triggerbot. No kernel driver.">
-  <meta property="og:title" content="mbw9 — External CS2 v3.3">
-  <meta property="og:description" content="External CS2 overlay. Usermode, no driver, static binary.">
-  <meta property="og:image" content="menu-image.png">
-  <link rel="icon" href="app.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mbw9 — External CS2 v3.3</title>
+<meta name="description" content="mbw9: external overlay for Counter-Strike 2. Usermode NtReadVirtualMemory, DirectX 11 + ImGui, radar, aimbot, triggerbot. No kernel driver.">
+<meta property="og:title" content="mbw9 — External CS2 v3.3">
+<meta property="og:description" content="External CS2 overlay. Usermode, no driver, static binary.">
+<meta property="og:image" content="menu-image.png">
+<link rel="icon" href="app.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <header class="nav">
-    <div class="wrap bar">
-      <a class="logo" href="#top">mbw9 <small>v<span data-v="version">3.3</span></small></a>
-      <nav aria-label="Main">
-        <a href="#features">Features</a>
-        <a href="#setup">Setup</a>
-        <a href="#faq">FAQ</a>
-        <a href="#changes">Changes</a>
-        <a href="#download" class="btn small">Download</a>
-      </nav>
+<header class="nav">
+  <div class="wrap bar">
+    <a class="logo" href="#top">mbw9 <small>v<span data-v="version">3.3</span></small></a>
+    <nav aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#setup">Setup</a>
+      <a href="#faq">FAQ</a>
+      <a href="#changes">Changes</a>
+      <a href="#download" class="btn small">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="wrap hero">
+  <div class="hero-copy">
+    <h1>An external overlay for Counter-Strike&nbsp;2</h1>
+    <p class="lead">mbw9 reads game memory from usermode with <code>NtReadVirtualMemory</code> and draws a transparent DirectX 11 window on top of CS2. No kernel driver, no installer, one 1.3 MB executable.</p>
+    <div class="actions">
+      <a class="btn" href="mbw9-v3.3.zip" data-href="zip" download>Download v<span data-v="version">3.3</span></a>
+      <a class="btn ghost" href="https://github.com/AbdooMrini/cs2-mbw9-release" data-href="github" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://discord.gg/A34uD5RKa" data-href="discord" target="_blank" rel="noopener">Discord</a>
     </div>
-  </header>
+    <p class="note">Synced with CS2 build <span data-v="build">14188</span>, <span data-v="date">Sep 30 2026</span>. Windows 10/11 x64.</p>
+  </div>
+  <figure class="shot">
+    <div class="shot-bar"><span class="status"><i></i><b>CS2 connected</b></span><span>INSERT toggles the menu</span></div>
+    <img src="menu-image.png" alt="The mbw9 in-game menu">
+  </figure>
+</section>
 
-  <main id="top">
+<section id="features" class="wrap sec">
+  <h2>What it does</h2>
+  <p class="sub">Organised like the menu itself: one tab per module.</p>
+  <div class="tabs" role="tablist" aria-label="Feature modules"></div>
 
-    <section class="wrap hero">
-      <div class="hero-copy">
-        <h1>Mbw9 External-CS2</h1>
-        <p class="lead">best cheat made by mbw9 <code>External CS2</code>.<br>transparent DirectX 11 window on top
-          of CS2. No kernel driver, no installer, one 1.3 MB executable.</p>
-        <div class="actions">
-          <a class="btn" href="mbw9-v3.3.zip" data-href="zip" download>Download v<span data-v="version">3.3</span></a>
-          <a class="btn ghost" href="https://github.com/AbdooMrini/cs2-mbw9-release" data-href="github" target="_blank"
-            rel="noopener">GitHub</a>
-          <a class="btn ghost" href="https://discord.gg/A34uD5RKa" data-href="discord" target="_blank"
-            rel="noopener">Discord</a>
-        </div>
-        <p class="note">Synced with CS2 build <span data-v="build">14188</span>, <span data-v="date">Sep 30 2026</span>.
-          Windows 10/11 x64.</p>
-      </div>
-      <figure class="shot">
-        <div class="shot-bar"><span class="status"><i></i><b>CS2 connected</b></span><span>INSERT toggles the
-            menu</span></div>
-        <img src="menu-image.png" alt="The mbw9 in-game menu">
-      </figure>
+  <div class="panels">
+    <section class="panel" data-tab="Visuals">
+      <h3>Visuals</h3>
+      <ul>
+        <li>2D boxes, full or corner style, per-team colors</li>
+        <li>Skeleton with head dot and shadow background</li>
+        <li>Health bar with dynamic color, 4 positions, adjustable thickness</li>
+        <li>Name, weapon, distance, C4 carrier and flashed badges</li>
+        <li>Snaplines and offscreen arrows</li>
+        <li>Pixel offsets for every element</li>
+      </ul>
     </section>
-
-    <section id="features" class="wrap sec">
-      <h2>What it does</h2>
-      <p class="sub">Features you can control from the menu :</p>
-      <div class="tabs" role="tablist" aria-label="Feature modules"></div>
-
-      <div class="panels">
-        <section class="panel" data-tab="Visuals">
-          <h3>Visuals</h3>
-          <ul>
-            <li>2D boxes, full or corner style, per-team colors</li>
-            <li>Skeleton with head dot and shadow background</li>
-            <li>Health bar with dynamic color, 4 positions, adjustable thickness</li>
-            <li>Name, weapon, distance, C4 carrier and flashed badges</li>
-            <li>Snaplines and offscreen arrows</li>
-            <li>Pixel offsets for every element</li>
-          </ul>
-        </section>
-        <section class="panel" data-tab="Aimbot">
-          <h3>Aimbot</h3>
-          <ul>
-            <li>Head, neck, chest or pelvis targeting with FOV circle and smoothing</li>
-            <li>Recoil control: strength, smoothing, start after N shots</li>
-            <li>Humanizer: acquisition delay, micro jitter, overshoot, reaction variance, velocity prediction</li>
-            <li>Silent aim (pSilent) with 3D sphere FOV, tick sync and prediction</li>
-            <li>Flash, smoke and visibility checks</li>
-          </ul>
-        </section>
-        <section class="panel" data-tab="Triggerbot">
-          <h3>Triggerbot</h3>
-          <ul>
-            <li>Crosshair-based auto-fire on a hold key (ALT by default)</li>
-            <li>Random min/max delay</li>
-            <li>Rapid fire for pistols</li>
-            <li>Burst mode with count and delay</li>
-          </ul>
-        </section>
-        <section class="panel" data-tab="Radar">
-          <h3>Radar</h3>
-          <ul>
-            <li>Separate 2D radar window, draggable and resizable, 11 maps</li>
-            <li>Blips with names, direction cones and health color</li>
-            <li>Zoom and scan range, deathmatch mode</li>
-            <li>Player Positions window with zone callouts, TAB for enemies only</li>
-            <li>Spectator minimap on F5</li>
-          </ul>
-        </section>
-        <section class="panel" data-tab="World">
-          <h3>World and C4</h3>
-          <ul>
-            <li>Draggable bomb panel: explosion timer, defuse timer with kit status, SAFE / LETHAL indicator</li>
-            <li>In-world bomb badge with A/B site and timer</li>
-            <li>Dropped weapons with ammo, hostages, map objects</li>
-            <li>Grenade trajectory, projectile tracking and danger warnings</li>
-            <li>Nade Helper: saved lineups per map and grenade, import and export</li>
-          </ul>
-        </section>
-        <section class="panel" data-tab="Crosshair">
-          <h3>Crosshair <em>added Sep 30</em></h3>
-          <ul>
-            <li>Classic cross and static quadrant styles</li>
-            <li>Outline color and thickness, gap down to -20 px</li>
-            <li>Custom scope dot with scale and color</li>
-            <li>Grenade crosshair during freeze time, visible with every weapon</li>
-          </ul>
-        </section>
-        <section class="panel" data-tab="Misc">
-          <h3>Misc</h3>
-          <ul>
-            <li>Bunny hop with auto strafe</li>
-            <li>FOV changer, 60 to 140 degrees</li>
-            <li>No flash with adjustable alpha, silent reload</li>
-            <li>Spectator list</li>
-            <li>Stream proof: the overlay is excluded from screen capture (<code>WDA_EXCLUDEFROMCAPTURE</code>)</li>
-            <li>Config profiles through a file dialog</li>
-          </ul>
-        </section>
-      </div>
+    <section class="panel" data-tab="Aimbot">
+      <h3>Aimbot</h3>
+      <ul>
+        <li>Head, neck, chest or pelvis targeting with FOV circle and smoothing</li>
+        <li>Recoil control: strength, smoothing, start after N shots</li>
+        <li>Humanizer: acquisition delay, micro jitter, overshoot, reaction variance, velocity prediction</li>
+        <li>Silent aim (pSilent) with 3D sphere FOV, tick sync and prediction</li>
+        <li>Flash, smoke and visibility checks</li>
+      </ul>
     </section>
-
-    <section class="wrap sec" id="tech">
-      <h2>Under the hood</h2>
-      <dl class="spec">
-        <dt>Memory</dt>
-        <dd><code>NtReadVirtualMemory</code>, batched, usermode only</dd>
-        <dt>Overlay</dt>
-        <dd>Transparent topmost DirectX 11 window with ImGui, VSync toggle</dd>
-        <dt>Entity cache</dt>
-        <dd>125 Hz thread protected by a seqlock, plus chunk and class-name caches to avoid repeated reads</dd>
-        <dt>Binary</dt>
-        <dd>About 1.3 MB, static <code>/MT</code> build, no VC++ redistributable</dd>
-        <dt>Toolchain</dt>
-        <dd>MSVC 2022, <code>/O2 /GL /MT /std:c++17</code>, x64 only</dd>
-      </dl>
+    <section class="panel" data-tab="Triggerbot">
+      <h3>Triggerbot</h3>
+      <ul>
+        <li>Crosshair-based auto-fire on a hold key (ALT by default)</li>
+        <li>Random min/max delay</li>
+        <li>Rapid fire for pistols</li>
+        <li>Burst mode with count and delay</li>
+      </ul>
     </section>
-
-    <section id="setup" class="wrap sec two">
-      <div>
-        <h2>Setup</h2>
-        <ol class="steps">
-          <li>Extract every file of the archive into one folder. <code>External.exe</code> needs <code>LOGO.png</code>
-            and <code>fa-solid-900.ttf</code> next to it, or the menu will not load.</li>
-          <li>Start Counter-Strike 2 in <strong>Fullscreen Windowed</strong> or <strong>Windowed</strong>. The overlay
-            cannot draw over exclusive fullscreen.</li>
-          <li>Right-click <code>External.exe</code> and choose <strong>Run as administrator</strong>.</li>
-          <li>Press <kbd>INSERT</kbd> in game.</li>
-        </ol>
-        <p class="req">Requires Windows 10/11 x64, CS2 running, administrator rights.</p>
-      </div>
-      <div>
-        <h2>Hotkeys</h2>
-        <table class="keys">
-          <tr>
-            <td><kbd>INSERT</kbd></td>
-            <td>Show or hide the menu</td>
-          </tr>
-          <tr>
-            <td><kbd>ALT</kbd></td>
-            <td>Triggerbot hold key (changeable)</td>
-          </tr>
-          <tr>
-            <td><kbd>F5</kbd></td>
-            <td>Spectator minimap</td>
-          </tr>
-          <tr>
-            <td><kbd>TAB</kbd></td>
-            <td>Enemies only in Positions</td>
-          </tr>
-          <tr>
-            <td>Mouse drag</td>
-            <td>Move the menu, radar and bomb panel</td>
-          </tr>
-        </table>
-      </div>
+    <section class="panel" data-tab="Radar">
+      <h3>Radar</h3>
+      <ul>
+        <li>Separate 2D radar window, draggable and resizable, 11 maps</li>
+        <li>Blips with names, direction cones and health color</li>
+        <li>Zoom and scan range, deathmatch mode</li>
+        <li>Player Positions window with zone callouts, TAB for enemies only</li>
+        <li>Spectator minimap on F5</li>
+      </ul>
     </section>
-
-    <section id="faq" class="wrap sec">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details>
-          <summary>Is it undetected?</summary>
-          <p>Safe as possible for an external cheat.
-        </details>
-        <details>
-          <summary>Why does it need administrator rights?</summary>
-          <p>It opens a handle on the CS2 process to read its memory. Windows only allows that from an elevated process.
-          </p>
-        </details>
-        <details>
-          <summary>The overlay does not appear.</summary>
-          <p>Check that CS2 is in Fullscreen Windowed or Windowed, that <code>External.exe</code> runs as administrator,
-            and that CS2 was already running when you started it.</p>
-        </details>
-        <details>
-          <summary>The menu opens without icons or logo.</summary>
-          <p><code>fa-solid-900.ttf</code> and <code>LOGO.png</code> must sit in the same folder as
-            <code>External.exe</code>.
-          </p>
-        </details>
-        <details>
-          <summary>My antivirus flags the file.</summary>
-          <p>Programs that read another process's memory are often flagged. The executable is unsigned, so only download
-            it from this site or the GitHub repository.</p>
-        </details>
-        <details>
-          <summary>Does the game update break it?</summary>
-          <p>Usually, yes. Offsets change with CS2 updates, so wait for a build that matches the current game version.
-            The current one targets build <span data-v="build">14188</span>.</p>
-        </details>
-      </div>
+    <section class="panel" data-tab="World">
+      <h3>World and C4</h3>
+      <ul>
+        <li>Draggable bomb panel: explosion timer, defuse timer with kit status, SAFE / LETHAL indicator</li>
+        <li>In-world bomb badge with A/B site and timer</li>
+        <li>Dropped weapons with ammo, hostages, map objects</li>
+        <li>Grenade trajectory, projectile tracking and danger warnings</li>
+        <li>Nade Helper: saved lineups per map and grenade, import and export</li>
+      </ul>
     </section>
-
-    <section id="changes" class="wrap sec">
-      <h2>Changes</h2>
-      <dl class="log">
-        <dt>v3.3 <small>Sep 30 2026</small></dt>
-        <dd>Crosshair module: two styles, outline, negative gap, scope dot, grenade crosshair. Offsets updated for CS2
-          build 14188.</dd>
-        <dt>v3.2 <small>GitHub release</small></dt>
-        <dd>Visuals, aimbot with humanizer and pSilent, triggerbot, radar, nade helper, misc, 125 Hz entity cache.</dd>
-      </dl>
+    <section class="panel" data-tab="Crosshair">
+      <h3>Crosshair <em>added Sep 30</em></h3>
+      <ul>
+        <li>Classic cross and static quadrant styles</li>
+        <li>Outline color and thickness, gap down to -20 px</li>
+        <li>Custom scope dot with scale and color</li>
+        <li>Grenade crosshair during freeze time, visible with every weapon</li>
+      </ul>
     </section>
-
-    <section id="download" class="wrap sec">
-      <h2>Download</h2>
-      <div class="dl">
-        <div>
-          <strong>mbw9-v<span data-v="version">3.3</span>.zip</strong>
-          <span>External.exe, LOGO.png, fa-solid-900.ttf, radar_data.json, map/ — 4.1 MB</span>
-        </div>
-        <a class="btn" href="mbw9-v3.3.zip" data-href="zip" download>Download .zip</a>
-      </div>
-      <p class="note">Older builds and source of truth: <a href="https://github.com/AbdooMrini/cs2-mbw9-release"
-          data-href="github" target="_blank" rel="noopener">GitHub</a>. Help and bug reports: <a
-          href="https://discord.gg/A34uD5RKa" data-href="discord" target="_blank" rel="noopener">Discord</a>.</p>
+    <section class="panel" data-tab="Misc">
+      <h3>Misc</h3>
+      <ul>
+        <li>Bunny hop with auto strafe</li>
+        <li>FOV changer, 60 to 140 degrees</li>
+        <li>No flash with adjustable alpha, silent reload</li>
+        <li>Spectator list</li>
+        <li>Stream proof: the overlay is excluded from screen capture (<code>WDA_EXCLUDEFROMCAPTURE</code>)</li>
+        <li>Config profiles through a file dialog</li>
+      </ul>
     </section>
+  </div>
+</section>
 
-  </main>
+<section class="wrap sec" id="tech">
+  <h2>Under the hood</h2>
+  <dl class="spec">
+    <dt>Memory</dt><dd><code>NtReadVirtualMemory</code>, batched, usermode only</dd>
+    <dt>Overlay</dt><dd>Transparent topmost DirectX 11 window with ImGui, VSync toggle</dd>
+    <dt>Entity cache</dt><dd>125 Hz thread protected by a seqlock, plus chunk and class-name caches to avoid repeated reads</dd>
+    <dt>Binary</dt><dd>About 1.3 MB, static <code>/MT</code> build, no VC++ redistributable</dd>
+    <dt>Toolchain</dt><dd>MSVC 2022, <code>/O2 /GL /MT /std:c++17</code>, x64 only</dd>
+  </dl>
+</section>
 
-  <footer class="wrap foot">
-    <p>m b w 9 release . Not affiliated with or endorsed by Valve.</p>
-  </footer>
+<section id="setup" class="wrap sec two">
+  <div>
+    <h2>Setup</h2>
+    <ol class="steps">
+      <li>Extract every file of the archive into one folder. <code>External.exe</code> needs <code>LOGO.png</code> and <code>fa-solid-900.ttf</code> next to it, or the menu will not load.</li>
+      <li>Start Counter-Strike 2 in <strong>Fullscreen Windowed</strong> or <strong>Windowed</strong>. The overlay cannot draw over exclusive fullscreen.</li>
+      <li>Right-click <code>External.exe</code> and choose <strong>Run as administrator</strong>.</li>
+      <li>Press <kbd>INSERT</kbd> in game.</li>
+    </ol>
+    <p class="req">Requires Windows 10/11 x64, CS2 running, administrator rights.</p>
+  </div>
+  <div>
+    <h2>Hotkeys</h2>
+    <table class="keys">
+      <tr><td><kbd>INSERT</kbd></td><td>Show or hide the menu</td></tr>
+      <tr><td><kbd>ALT</kbd></td><td>Triggerbot hold key (changeable)</td></tr>
+      <tr><td><kbd>F5</kbd></td><td>Spectator minimap</td></tr>
+      <tr><td><kbd>TAB</kbd></td><td>Enemies only in Positions</td></tr>
+      <tr><td>Mouse drag</td><td>Move the menu, radar and bomb panel</td></tr>
+    </table>
+  </div>
+</section>
 
-  <script src="app.js"></script>
+<section id="faq" class="wrap sec">
+  <h2>FAQ</h2>
+  <div class="faq">
+    <details><summary>Is it undetected?</summary><p>Nobody can promise that. Valve and third-party anti-cheats can ban accounts, and a VAC ban is permanent. You use it at your own risk.</p></details>
+    <details><summary>Why does it need administrator rights?</summary><p>It opens a handle on the CS2 process to read its memory. Windows only allows that from an elevated process.</p></details>
+    <details><summary>The overlay does not appear.</summary><p>Check that CS2 is in Fullscreen Windowed or Windowed, that <code>External.exe</code> runs as administrator, and that CS2 was already running when you started it.</p></details>
+    <details><summary>The menu opens without icons or logo.</summary><p><code>fa-solid-900.ttf</code> and <code>LOGO.png</code> must sit in the same folder as <code>External.exe</code>.</p></details>
+    <details><summary>My antivirus flags the file.</summary><p>Programs that read another process's memory are often flagged. The executable is unsigned, so only download it from this site or the GitHub repository.</p></details>
+    <details><summary>Does the game update break it?</summary><p>Usually, yes. Offsets change with CS2 updates, so wait for a build that matches the current game version. The current one targets build <span data-v="build">14188</span>.</p></details>
+  </div>
+</section>
+
+<section id="changes" class="wrap sec">
+  <h2>Changes</h2>
+  <dl class="log">
+    <dt>v3.3 <small>Sep 30 2026</small></dt>
+    <dd>Crosshair module: two styles, outline, negative gap, scope dot, grenade crosshair. Offsets updated for CS2 build 14188.</dd>
+    <dt>v3.2 <small>GitHub release</small></dt>
+    <dd>Visuals, aimbot with humanizer and pSilent, triggerbot, radar, nade helper, misc, 125 Hz entity cache.</dd>
+  </dl>
+</section>
+
+<section id="download" class="wrap sec">
+  <h2>Download</h2>
+  <div class="dl">
+    <div>
+      <strong>mbw9-v<span data-v="version">3.3</span>.zip</strong>
+      <span>External.exe, LOGO.png, fa-solid-900.ttf, radar_data.json, map/ — 4.1 MB</span>
+    </div>
+    <a class="btn" href="mbw9-v3.3.zip" data-href="zip" download>Download .zip</a>
+  </div>
+  <p class="note">Older builds and source of truth: <a href="https://github.com/AbdooMrini/cs2-mbw9-release" data-href="github" target="_blank" rel="noopener">GitHub</a>. Help and bug reports: <a href="https://discord.gg/A34uD5RKa" data-href="discord" target="_blank" rel="noopener">Discord</a>.</p>
+</section>
+
+</main>
+
+<footer class="wrap foot">
+  <p>For educational and research purposes. Use at your own risk. Not affiliated with or endorsed by Valve.</p>
+</footer>
+
+<script src="app.js"></script>
 </body>
-
 </html>
