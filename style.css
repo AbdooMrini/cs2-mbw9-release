@@ -114,3 +114,33 @@ h3 em { font: 500 0.75rem var(--body); color: var(--accent); margin-left: 8px; }
   .shot-bar span:last-child { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- Motion ---------- */
+.status { display: inline-flex; align-items: center; gap: 8px; }
+.status i { width: 7px; height: 7px; border-radius: 50%; background: #3fb77a; }
+.status[data-state="wait"] i, .status[data-state="attach"] i { background: var(--accent); }
+.nav nav a[aria-current]:not(.btn) { color: var(--white); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes unfold { from { clip-path: inset(0 0 100% 0); opacity: .4; } to { clip-path: inset(0); opacity: 1; } }
+  @keyframes blink { 50% { opacity: .25; } }
+
+  /* One orchestrated load: copy rises in order, then the menu "opens" like INSERT was pressed. */
+  .hero-copy > * { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-copy > :nth-child(2) { animation-delay: .08s; }
+  .hero-copy > :nth-child(3) { animation-delay: .16s; }
+  .hero-copy > :nth-child(4) { animation-delay: .24s; }
+  .shot { animation: unfold .75s .3s cubic-bezier(.2,.7,.2,1) both; }
+  .status[data-state="wait"] i, .status[data-state="attach"] i { animation: blink 1s steps(2, jump-none) infinite; }
+
+  /* Answers to actions */
+  .btn, .tabs button, .nav nav a, .faq summary::after { transition: background-color .15s, color .15s, border-color .15s; }
+  .btn:active { transform: translateY(1px); }
+  .js .panel.on li { animation: rise .35s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 45ms); }
+  .faq details[open] p { animation: rise .25s ease-out both; }
+
+  /* Sections appear once as they enter the viewport */
+  .js .rv:not(.in) { opacity: 0; transform: translateY(14px); }
+  .js .rv { transition: opacity .5s ease-out, transform .5s cubic-bezier(.2,.7,.2,1); }
+}
