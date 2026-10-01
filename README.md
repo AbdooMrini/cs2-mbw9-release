@@ -152,7 +152,7 @@ Extract all files into the **exact same directory**:
 
 Join the community Discord server for updates, profiles, and assistance:
 
-[![Discord Server](https://img.shields.io/badge/Discord-Join%20Chat-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/A34uD5RKa)
+[![Discord Server](https://img.shields.io/badge/Discord-Join%20Chat-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/j88M4gwdG)
 
 ---
 
