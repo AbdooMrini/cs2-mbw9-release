@@ -1,304 +1,161 @@
-# mbw9 — CS2 External Cheat (Premium Build v3.3)
+<div align="center">
 
-> External CS2 cheat — DirectX 11 overlay, ImGui UI, NTAPI memory reads, no driver needed.
+# mbw9 — CS2 External (Premium Build v3.3)
 
-![Menu Preview](menu-image.png)
+![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011%20(x64)-0078D6?style=for-the-badge&logo=windows)
+![Graphics](https://img.shields.io/badge/Renderer-DirectX%2011%20%2B%20ImGui-blueviolet?style=for-the-badge)
+![Security](https://img.shields.io/badge/Bypass-Usermode%20NTAPI%20(No%20Driver)-success?style=for-the-badge)
+![Stream Proof](https://img.shields.io/badge/Stream%20Proof-OBS%20%2F%20Discord%20Safe-orange?style=for-the-badge)
+![Game](https://img.shields.io/badge/CS2-Updated%20(Build%2014188)-red?style=for-the-badge)
 
----
+<p align="center">
+  <b>High-performance, driverless external overlay for Counter-Strike 2.</b><br>
+  Equipped with DirectX 11 rendering, ultra-low latency NTAPI memory reads, full tactical radar, smart aimbot, and customizable crosshairs.
+</p>
 
-## Changelog
-
-### v3.3 — Sep 30 2026
-- **CS2 Update sync** — Valve patch Sep 30 (MISC section)
-  - Fixed pixel-gaps in various Rush rooms *(map geometry)*
-  - Clipping adjustments in T/CT Castle rooms *(map geometry)*
-- Silent Reload section updated to Sep 30 build
-- CS2 Update notes panel added in Misc tab
-- Version string bumped to v3.3
-
-### v3.2 — Aug 2026
-- Full release sync: `map/`, `radar_data.json`, font files
-- Player Positions tactical window
-- Spectator Minimap (F5, auto-shows when spectating)
-- Silent Reload mechanic (CS2 hold-reload, silent for enemies)
-- FOV Changer + View Offsets (X/Y/Z)
-- Pro Player Humanize v2 + Silent Aim pSilent Engine
-- Config save/load with file dialog
-
-### v3.1 — Aug 2026 (Initial public release)
-- Initial release
+[![Discord](https://img.shields.io/badge/Join%20our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/A34uD5RKa)
 
 ---
 
-## Download & Setup
+<img src="menu-image.png" alt="mbw9 Menu Preview" width="900" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" />
 
-### Required Files
-All files must be in the **same folder**:
-
-| File | Purpose |
-|------|---------|
-| `External.exe` | The cheat executable |
-| `fa-solid-900.ttf` | FontAwesome icon font (menu icons) |
-| `fa-solid-900.otf` | FontAwesome icon font (fallback) |
-| `LOGO.png` | Logo displayed in menu header & sidebar |
-| `radar_data.json` | Map coordinate data for radar & positions |
-| `map/` folder | Radar map images (11 maps) |
-
-### How to Run
-
-1. Launch **Counter-Strike 2** and enter the main menu or a game.
-2. Right-click **`External.exe`** → **Run as administrator**.
-3. Press **`INSERT`** to open/close the menu.
-4. Configure features from the tabs on the left.
-
-### Requirements
-
-| | |
-|---|---|
-| **OS** | Windows 10 (1903+) or Windows 11 — x64 only |
-| **GPU** | DirectX 11 compatible |
-| **RAM** | 4 GB minimum |
-| **Privileges** | Administrator (NTAPI memory access) |
-
-> **No drivers, no DLLs, no VC++ redist needed.**  
-> Statically linked (`/MT`), uses `NtReadVirtualMemory` directly from usermode.  
-> Overlay uses `WDA_EXCLUDEFROMCAPTURE` — **invisible to OBS, Discord, streaming software.**
-
-> Windows Defender may flag the exe — add a folder exclusion if needed.
+</div>
 
 ---
 
-## Menu Controls
+## ⚡ Quick Start
 
-| Key | Action |
-|-----|--------|
-| `INSERT` | Toggle menu open / close |
-| `ALT` (default) | Triggerbot hotkey |
-| `F5` | Toggle Spectator Minimap |
-| `TAB` | Toggle enemy-only in Player Positions window |
-| Mouse drag | Move menu / radar / bomb panel / spectator map |
+### 1. Requirements
+* **Operating System**: Windows 10 (1903+) or Windows 11 (64-bit).
+* **Game**: Counter-Strike 2 running in *Fullscreen Windowed* (Borderless) or *Windowed* mode.
+* **Privileges**: Administrator rights (required for usermode `NtReadVirtualMemory` access).
+* **Dependencies**: None! Statically linked (`/MT`), no VC++ redistributable or kernel drivers needed.
+
+### 2. Files Setup
+Extract all files into the **exact same directory**:
+
+| File / Folder | Description |
+| :--- | :--- |
+| `External.exe` | Main application executable |
+| `LOGO.png` | Menu brand header & sidebar visual |
+| `fa-solid-900.ttf` | FontAwesome 6 icon glyphs |
+| `fa-solid-900.otf` | Fallback icon font |
+| `radar_data.json` | World-to-map calibration coordinates |
+| `map/` | High-resolution tactical 2D radar maps (11 competitive maps) |
+
+### 3. Usage
+1. Launch **Counter-Strike 2** first and enter the main menu or a game.
+2. Right-click **`External.exe`** and select **Run as Administrator**.
+3. Press **`INSERT`** on your keyboard to toggle the menu open or closed.
+4. Customize your settings across the navigation tabs on the left.
 
 ---
 
-## Features
+## ⌨️ Default Keybindings
+
+| Key | Function | Description |
+| :---: | :--- | :--- |
+| `INSERT` | **Toggle Menu** | Show or hide the configuration interface |
+| `ALT` | **Triggerbot** | Hold to engage automatic firing when on target (customizable) |
+| `F5` | **Spectator Map** | Toggle the tactical 2D overview map while spectating |
+| `TAB` | **Filter Positions** | Toggle enemy-only filtering in the Player Positions window |
+| `Mouse Drag` | **Reposition Panels** | Move Menu, Radar, Bomb HUD, Spectator Map anywhere |
+
+---
+
+## 🌟 Feature Breakdown
 
 ### 👁️ Visuals (ESP)
+* **2D Bounding Box**: Classic full box or corner frame with customizable thickness, corner length, and team-specific colors.
+* **Dynamic Health Bar**: Left/Right/Top/Bottom positioning with automatic Green-to-Red health gradients.
+* **Bone Skeleton**: High-precision bone joints with head-point indicators and background drop-shadows.
+* **Player Info Badges**: Real-time Player Name, Active Weapon with icon, Distance (meters), C4 Carrier tag, and Flash/Blind state.
+* **Snaplines & Indicators**: Target tracer lines from Top, Bottom, or Screen Center + 360° offscreen directional arrows.
+* **Pixel Tuning**: Dedicated advanced customization panel for pixel-level offset adjustment on every element.
 
-**General & Activation**
-- Master ESP toggle
-- Enemy Only / Visible Only (spotted) filters
-
-**Bounding Box**
-- 2D Box — Full or Corner style
-- Per-team colors, box thickness, corner length
-
-**Health Bar**
-- Dynamic color by HP (green → red)
-- Position: Left / Right / Top / Bottom
-- Configurable thickness, background track
-
-**Skeleton & Bones**
-- Full bone skeleton with configurable thickness
-- Head joint dot, shadow/outline background
-
-**Player Details & Text ESP**
-- Player Name, Distance, Active Weapon
-- C4 Carrier badge, Flashed/Blind badge
-- Per-element position, scale, color, background toggle
-
-**Snaplines & Offscreen Indicators**
-- Snaplines (origin: Top / Bottom / Center, thickness, color)
-- Offscreen arrows (radius, size, color)
-
-**Advanced Customisation**
-- Pixel-level X/Y fine-tuning for every element (health bar, name, weapon, distance, C4 badge, blind badge)
-
----
-
-### 🌍 World & C4
-
-**Bomb Panel HUD**
-- Draggable HUD panel with explosion timer
-- Defuse timer + kit status (with/without kit)
-- SAFE / NOT SAFE damage indicator
-- Configurable position, opacity, background opacity
-
-**Planted C4 3D Badge**
-- Shows plant site (A/B) and countdown in-world
-
-**Grenades & Projectiles**
-- Grenade warnings (incoming flash, HE, molotov)
-- Projectile tracking
-- Offscreen arrows for all grenades on map
-
-**Dropped Weapons & Items**
-- Item name, distance, ammo count
-- Weapon color, offscreen arrows
-- Dropped C4 badge
-- Max scan distance slider
-
-**Hostages & Map Objects**
-- Show hostages, show map elements
-
----
-
-### 🎯 Aimbot
-
-**General**
-- Enable toggle + Aim-On-Key (configurable keybind)
-- Enemy Only / Visible Only / Flash Check / Smoke Check
-
-**Targeting & FOV**
-- Hitbox: Head / Neck / Chest / Pelvis
-- Target selection: Closest to crosshair or Lowest HP
-- FOV slider + smoothing
-- Draw FOV circle (color, thickness)
-
-**Recoil Control System (RCS)**
-- Enable RCS / Compensate on target only
-- RCS Strength, RCS Smoothing
-- Start After N Shots
-
-**Humanization**
-- Acquisition delay, micro jitter, speed variance
-- Pro Player Humanize v2: micro overshoot, distance scaling, base reaction, reaction variance, correction delay, decelerate near target
-- Target velocity prediction (prediction time)
-
-**Silent Aim (pSilent Engine)**
-- Enable + Use-Key keybind
-- Silent FOV / Silent Smooth
-- 3D Sphere FOV radius
-- Silent Hitbox selector
-- Enemy Only / Visible Only / Flash Check / Smoke Check
-- Pro Silent Mode: jitter, tick sync
-- Silent Prediction (prediction time)
-- Draw Silent FOV circle
-
----
+### 🎯 Combat & Aimbot
+* **Smart Aimbot**: Smoothing curve, dynamic FOV circle, and bone selection (Head, Neck, Chest, Pelvis).
+* **Target Priority**: Nearest to Crosshair or Lowest HP targeting algorithms.
+* **Advanced Safety Checks**: Visibility verification (spotted mask), Smoke Check, and Flash Check.
+* **Recoil Control System (RCS)**: Standalone or aim-assisted pitch/yaw recoil compensation with shot-delay activation.
+* **Humanizer Engine**: Natural micro-overshoot, aim deceleration, reaction-time jitter, and target velocity prediction.
+* **pSilent Engine**: Silent aim calculation with 3D spherical FOV and tick synchronization.
 
 ### ⚡ Triggerbot
+* **Instant & Magnet Trigger**: Fires automatically upon crosshair intersection.
+* **Scoped Only Filter**: Optional safety filter strictly active when snipers are zoomed in.
+* **Delay Variance**: Humanized pre-fire and post-fire millisecond randomize delays.
+* **Pistol Rapid Fire & Burst**: Automatic cycle for semi-automatic handguns and rifles.
 
-- Enable + Hotkey
-- Enemy Only / Only Scoped (snipers)
-- Base delay + humanized random delays (min/max)
-- Auto Pistol rapid fire (fire rate)
-- Burst Fire Mode (burst count, burst delay)
+### 🗺️ Radar & Tactical Minimap
+* **Standalone 2D Radar**: Floating, draggable radar window with clean player blips, health colors, and look-direction cones.
+* **Player Positions HUD**: Real-time in-game callout display (e.g. *Banana*, *A Site*, *Catwalk*, *Apartments*).
+* **Spectator Map**: Tactical bird's-eye map displaying all player positions when eliminated or spectating (`F5`).
 
----
+### 💣 World & Objective
+* **Bomb HUD Panel**: Floating draggable C4 countdown timer, defuse kit detection, and lethal radius indicator (**SAFE / LETHAL**).
+* **Planted C4 3D ESP**: World-space marker highlighting plant site (**A** or **B**) and remaining detonation seconds.
+* **Grenade Warning & Projectiles**: Real-time grenade tracking with trajectory lines and offscreen danger alerts.
+* **Dropped Weapons & Items**: World labels for dropped rifles, pistols, grenades, and bomb carrier drops with ammo counts.
 
-### 🗺️ Radar
+### ⚙️ Crosshairs & Misc
+* **Custom Crosshairs**:
+  * **Styles**: Classic Cross & new **Static Quadrant**.
+  * **Outline System**: Toggleable outline with dedicated color picker and thickness control.
+  * **Negative Gap Support**: Fine-tune crosshair gaps down into negative spacing.
+  * **Scope Dot Control**: Custom scope reticle center dot with scale and RGBA color adjustment.
+  * **Freeze Time Grenade Crosshair**: Automatically displays grenade lineup crosshair during freeze time.
+* **Movement**: Automatic Bunny Hop with strafe synchronization.
+* **Camera Customization**: In-game FOV Changer (60°–140°) and View Offset tuning (X/Y/Z).
+* **Visual Protections**: No Flash effect with variable opacity slider (0% to 100%).
+* **Silent Reload**: CS2 quiet reload mechanic automation (inaudible to enemy players).
+* **Stream-Proof**: Hardware-level `WDA_EXCLUDEFROMCAPTURE` protects against Discord, OBS, and Twitch capture tools.
 
-- External 2D radar window (draggable, resizable)
-- Player blips with names, direction cones, health colors
-- Radar size, zoom, scan range, blip size sliders
-- Opacity & background opacity
-- Deathmatch mode, smooth blip movement
-- Reset radar position
-
----
-
-### 💣 Nade Helper
-
-- Show saved grenade lineup spots per map
-- Match grenade type filter
-- Draw distance / use distance sliders
-- Grenade trajectory prediction (prediction steps, interval)
-- Save current spot / Delete nearest / Clear all
-- Import / Export spots from file
-
----
-
-### ⚙️ Misc
-
-**Movement**
-- Bunny Hop (auto-jump)
-- Auto Strafe (grand pas) + strafe sensitivity
-
-**Camera & View**
-- FOV Changer (60°–140°)
-- View Offset X / Y / Z (camera position fine-tuning)
-
-**Crosshair**
-- Custom crosshair overlay for all weapon types
-- Length, gap, thickness, color
-- Always visible toggle (rifles, pistols, SMGs, snipers)
-
-**No Flash**
-- No Flash with configurable alpha (0–100%)
-
-**Silent Reload** *(CS2 mechanic — Sep 30 update)*
-- Auto hold-reload when clip is empty
-- Enemies cannot hear you reloading
-- Configurable keybind (0 = auto)
-- Silent Un-scope info toggle
-
-**CS2 Update Notes** *(Sep 30 2026)*
-- Valve patch notes displayed in-menu
-- Map geometry only: Rush pixel-gaps fixed, Castle clipping adjusted
-
-**Spectators & Stream Protection**
-- Spectator list overlay (who is watching you)
-- Hide from Capture — overlay excluded from screen recording (OBS, Discord, etc.)
+### 💾 Profile Management & Engine
+* **Config Profiles**: Save and load instant presets to `.ini` format.
+* **Native File Dialog**: Load and export configurations directly from standard Windows File Explorer dialogs.
+* **Tick Cache**: 125 Hz thread-safe seqlock entity snapshot system reducing memory access calls by 25×.
 
 ---
 
-### 📍 Positions (Tactical)
+## 🛠️ Architecture & Specifications
 
-**Player Positions Window**
-- Real-time CS2 zone label per player (A Site, Banana, Mid, CT Spawn…)
-- Enemy Only / All Players toggle (TAB key)
-- Draggable, configurable opacity
-
-**Spectator Minimap**
-- Full 2D radar map with zone labels and player dots
-- Auto-shows when spectating another player
-- F5 hotkey toggle
-- Show player names, zone positions, health colors
-- Configurable dot radius, opacity, map size and position
+| Component | Specification |
+| :--- | :--- |
+| **Memory Engine** | Direct usermode NTAPI (`NtReadVirtualMemory`), zero drivers |
+| **Graphics API** | DirectX 11 transparent overlay with ImGui docking style |
+| **Capture Protection** | `WDA_EXCLUDEFROMCAPTURE` display affinity |
+| **Cache Architecture** | Multi-threaded tick cache (~125 Hz) with seqlock synchronization |
+| **Toolchain** | Visual Studio 2022 (`/O2 /GL /MT /std:c++17`) |
+| **Architecture** | Native x64 |
 
 ---
 
-### 📊 Performance
+## 📝 Changelog (v3.3)
 
-- **Per-Tick Entity Cache** — 125 Hz snapshot (seqlock-protected), reduces driver calls by ~25×
-- **Tick Cache Refresh Interval** — configurable 1–32 ms
-- **VSync toggle**
-- **Disable Overlays When Menu Open** (hides ESP, radar, bomb panel, spectator list)
-- **System Info** — overlay FPS, timer resolution, memory backend info
-
----
-
-### 💾 Config
-
-- Save / Load named profiles
-- Load from File / Save to File (native Windows file dialog)
-- Delete profiles
-- Exit button
+* **Crosshair Engine Expansion**:
+  * Added **Crosshair Outline** with custom color palette and thickness slider.
+  * Added new **Static Quadrant** style option.
+  * Allowed **negative gap values** for classic dynamic crosshairs.
+  * Added **Custom Scope Dot** scale multiplier and RGBA color settings.
+  * Added **Freeze-Time Grenade Crosshair** toggle for instant smoke setups.
+* **Menu & UI Refinements**:
+  * Cleaned up Misc and Combat section layouts for a sleek, clutter-free look.
+  * Updated preview assets with the latest high-resolution interface captures.
+* **Engine Sync**:
+  * Synced offsets with Valve CS2 client update (Build 14188).
+  * Optimized memory reading throughput in entity loop.
 
 ---
 
-## Technical
+## 💬 Community & Support
 
-| | |
-|---|---|
-| **Memory backend** | `NtReadVirtualMemory` (direct NTAPI, no driver) |
-| **Overlay** | DirectX 11 + ImGui, transparent topmost window |
-| **Stream proof** | `WDA_EXCLUDEFROMCAPTURE` — invisible to capture software |
-| **Entity cache** | Per-tick seqlock snapshot at ~125 Hz |
-| **Build** | MSVC 2022, `/O2 /GL /MT /std:c++17`, statically linked |
-| **Arch** | x64 only |
+Join the community Discord server for updates, profiles, and assistance:
+
+[![Discord Server](https://img.shields.io/badge/Discord-Join%20Chat-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/A34uD5RKa)
 
 ---
 
-## Support
+## ⚠️ Disclaimer
 
-Questions or bugs → join the Discord:
-
-### [Join Discord](https://discord.gg/A34uD5RKa)
-
----
-
-## Disclaimer
-
-This software is provided for **educational purposes only**.  
-Use at your own risk. The author is not responsible for any bans or consequences from use.
+This project is created strictly for **educational and reverse-engineering research purposes**. Using third-party software in online matchmaking violates Valve's Terms of Service and may result in account penalties. Use at your own risk.
