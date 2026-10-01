@@ -33,7 +33,19 @@ document.querySelectorAll('[data-href]').forEach(a => { a.href = RELEASE[a.datas
     return b;
   });
 
+  const bar = document.createElement('span');
+  bar.className = 'tab-ind';
+  list.appendChild(bar);
+  let current = 0;
+  function moveTab() {
+    const b = buttons[current];
+    bar.style.width = b.offsetWidth + 'px';
+    bar.style.transform = 'translateX(' + b.offsetLeft + 'px)';
+  }
+
   function select(n, focus) {
+    current = n;
+    moveTab();
     buttons.forEach((b, i) => {
       b.setAttribute('aria-selected', i === n);
       b.tabIndex = i === n ? 0 : -1;
@@ -51,6 +63,8 @@ document.querySelectorAll('[data-href]').forEach(a => { a.href = RELEASE[a.datas
   });
 
   select(0);
+  addEventListener('resize', moveTab);
+  if (document.fonts) document.fonts.ready.then(moveTab);
 })();
 
 // ---------- Motion ----------
@@ -89,13 +103,76 @@ if (!calm && 'IntersectionObserver' in window) {
 // Highlight current section in the nav
 if ('IntersectionObserver' in window) {
   const links = [...document.querySelectorAll('.nav nav a[href^="#"]:not(.btn)')];
+  const navEl = document.querySelector('.nav nav');
+  const ind = document.createElement('span');
+  ind.className = 'ind';
+  navEl.appendChild(ind);
+  document.querySelector('.nav').classList.add('has-ind');
+  let curLink = null;
+  function moveInd(a) {
+    curLink = a || curLink;
+    if (!curLink) return;
+    ind.style.opacity = 1;
+    ind.style.width = curLink.offsetWidth + 'px';
+    ind.style.transform = 'translate(' + curLink.offsetLeft + 'px,' + (curLink.offsetTop + curLink.offsetHeight + 2) + 'px)';
+  }
+  addEventListener('resize', () => moveInd());
+  if (document.fonts) document.fonts.ready.then(() => moveInd());
   const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
   const spy = new IntersectionObserver(entries => entries.forEach(e => {
     const a = map.get(e.target.id);
     if (a && e.isIntersecting) {
       links.forEach(l => l.removeAttribute('aria-current'));
       a.setAttribute('aria-current', 'true');
+      moveInd(a);
     }
   }), { rootMargin: '-40% 0px -55% 0px' });
   map.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
+}
+
+// ---------- Fluidity ----------
+// Stagger lists and rows when their section reveals
+document.querySelectorAll('.spec, .log, .faq, .steps, .keys tbody').forEach(box => {
+  box.classList.add('stagger');
+  const pair = box.matches('.spec, .log') ? 2 : 1;
+  [...box.children].forEach((c, i) => c.style.setProperty('--i', Math.floor(i / pair)));
+});
+
+// Scroll progress line + nav shadow, one frame at a time
+const navBar = document.querySelector('.nav');
+const prog = document.createElement('span');
+prog.className = 'progress';
+navBar.appendChild(prog);
+let tick = false;
+function onScroll() {
+  if (tick) return;
+  tick = true;
+  requestAnimationFrame(() => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.setProperty('--p', max > 0 ? Math.min(scrollY / max, 1).toFixed(4) : 0);
+    navBar.classList.toggle('scrolled', scrollY > 8);
+    tick = false;
+  });
+}
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// Screenshot leans toward the pointer, eased so it never snaps
+const shot = document.querySelector('.shot');
+if (shot && !calm && matchMedia('(pointer: fine)').matches) {
+  let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+  const loop = () => {
+    x += (tx - x) * 0.09;
+    y += (ty - y) * 0.09;
+    shot.style.transform = 'perspective(1100px) rotateY(' + x.toFixed(2) + 'deg) rotateX(' + y.toFixed(2) + 'deg)';
+    raf = (Math.abs(tx - x) + Math.abs(ty - y) > 0.01) ? requestAnimationFrame(loop) : 0;
+  };
+  const aim = (a, b) => { tx = a; ty = b; if (!raf) raf = requestAnimationFrame(loop); };
+  document.querySelector('.hero').addEventListener('pointermove', e => {
+    const r = shot.getBoundingClientRect();
+    const nx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (innerWidth / 2)));
+    const ny = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (innerHeight / 2)));
+    aim(nx * 3, -ny * 2.5);
+  });
+  document.querySelector('.hero').addEventListener('pointerleave', () => aim(0, 0));
 }
