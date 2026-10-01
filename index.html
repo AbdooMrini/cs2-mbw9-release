@@ -3,519 +3,354 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mbw9 — Premium External CS2 Overlay (v3.3)</title>
-  <meta name="description" content="High-performance, driverless external overlay for Counter-Strike 2. DirectX 11 rendering, usermode NTAPI memory engine, 2D tactical radar, smart aimbot, and stream-proof technology.">
-  <link rel="icon" type="image/x-icon" href="app.ico">
-  
-  <!-- Fonts -->
+  <title>mbw9 — CS2 External (v3.3)</title>
+  <meta name="description" content="Driverless external CS2 overlay. DirectX 11 rendering, NTAPI memory, 2D radar, aimbot, stream-proof.">
+  <link rel="icon" href="app.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Ambient Glow Backgrounds -->
-  <div class="glow-orb orb-1"></div>
-  <div class="glow-orb orb-2"></div>
-  <div class="glow-orb orb-3"></div>
-
-  <!-- Navigation -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <img src="LOGO.png" alt="mbw9 logo" class="brand-logo" onerror="this.style.display='none'">
-        <span class="brand-name">mbw<span>9</span></span>
-        <span class="version-badge">v3.3</span>
+<!-- Navbar -->
+<header class="navbar" id="navbar">
+  <nav class="nav-container">
+    <a href="#" class="brand">
+      <img src="LOGO.png" alt="mbw9" class="brand-logo" onerror="this.style.display='none'">
+      <span class="brand-name">mbw<span>9</span></span>
+      <span class="version-badge">v3.3</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#preview" class="nav-link">Preview</a>
+      <a href="#specs" class="nav-link">Specs</a>
+      <a href="#setup" class="nav-link">Setup</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://discord.gg/j88M4gwdG" target="_blank" rel="noopener" class="btn btn-outline">
+        <i class="fa-brands fa-discord"></i> Discord
       </a>
-
-      <nav class="nav-links">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#preview" class="nav-link">Interface</a>
-        <a href="#specs" class="nav-link">Specifications</a>
-        <a href="#setup" class="nav-link">Setup</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a href="https://discord.gg/A34uD5RKa" target="_blank" rel="noopener" class="btn btn-discord">
-          <i class="fa-brands fa-discord"></i>
-          <span>Discord</span>
-        </a>
-        <a href="#download" class="btn btn-primary">
-          <i class="fa-solid fa-download"></i>
-          <span>Download</span>
-        </a>
-      </div>
+      <a href="#download" class="btn btn-primary">
+        <i class="fa-solid fa-download"></i> Download
+      </a>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="container hero-content">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        <span>CS2 Update Synchronized • Build 14188</span>
-      </div>
-
-      <h1 class="hero-title">
-        The Next Generation of <br>
-        <span class="gradient-text">External CS2 Technology</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Engineered for precision and stealth. Pure usermode NTAPI memory architecture with 
-        DirectX 11 transparent overlay rendering, multi-threaded 125 Hz tick caching, and zero kernel drivers required.
-      </p>
-
-      <!-- Key Stat Badges -->
-      <div class="status-ribbon">
-        <div class="status-item">
-          <i class="fa-solid fa-shield-halved text-cyan"></i>
-          <div>
-            <strong>Usermode NTAPI</strong>
-            <small>No Driver Required</small>
-          </div>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">
+          <span class="pulse"></span>
+          CS2 Build 14188 — Sep 30 2026
         </div>
-        <div class="status-item">
-          <i class="fa-solid fa-eye-slash text-purple"></i>
-          <div>
-            <strong>Stream-Proof</strong>
-            <small>OBS & Discord Invisible</small>
-          </div>
-        </div>
-        <div class="status-item">
-          <i class="fa-solid fa-microchip text-green"></i>
-          <div>
-            <strong>125 Hz Tick Cache</strong>
-            <small>Zero Frame Drop</small>
-          </div>
-        </div>
-        <div class="status-item">
-          <i class="fa-solid fa-crosshairs text-orange"></i>
-          <div>
-            <strong>Dynamic Crosshairs</strong>
-            <small>Static Quadrant & Outlines</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="hero-cta">
-        <a href="mbw9-v3.3.zip" download class="btn btn-hero-primary" id="hero-download-btn">
-          <i class="fa-solid fa-download"></i>
-          <div>
-            <span class="btn-title">Download mbw9 v3.3</span>
-            <span class="btn-sub">Full Release Package (.ZIP • 4.1 MB)</span>
-          </div>
-        </a>
-        <a href="https://github.com/AbdooMrini/cs2-mbw9-release" target="_blank" rel="noopener" class="btn btn-hero-secondary">
-          <i class="fa-brands fa-github"></i>
-          <span>GitHub Repository</span>
-        </a>
-        <a href="https://discord.gg/A34uD5RKa" target="_blank" rel="noopener" class="btn btn-hero-discord">
-          <i class="fa-brands fa-discord"></i>
-          <span>Join Discord</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Menu Showcase -->
-  <section class="section preview-section" id="preview">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">UI & Ergonomics</span>
-        <h2 class="section-title">Designed for Competitive Precision</h2>
-        <p class="section-desc">
-          An intuitive, dark-themed interface built on modern ImGui styling with real-time hardware metrics, responsive sliders, and sub-pixel fine tuning.
+        <h1 class="hero-title">mbw9 — External CS2<br><span>Premium Build v3.3</span></h1>
+        <p class="hero-desc">
+          High-performance driverless overlay for Counter-Strike 2. Usermode NTAPI memory engine,
+          DirectX 11 transparent rendering, stream-proof by design. No kernel driver required.
         </p>
-      </div>
-
-      <div class="window-frame">
-        <div class="window-topbar">
-          <div class="window-dots">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <div class="window-title">
-            <i class="fa-solid fa-gamepad"></i> mbw9 — Premium Build v3.3 (Connected • NTAPI 240 FPS)
-          </div>
-          <div class="window-controls">
-            <span class="hotkey-pill"><kbd>INSERT</kbd> Toggle Menu</span>
-          </div>
-        </div>
-        <div class="window-body">
-          <img src="menu-image.png" alt="mbw9 CS2 External Cheat Menu" class="menu-preview-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Grid -->
-  <section class="section features-section" id="features">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Arsenal</span>
-        <h2 class="section-title">Comprehensive Tactical Suite</h2>
-        <p class="section-desc">
-          Every tool is calibrated for competitive situational awareness and seamless customization.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        
-        <!-- Feature 1: Visuals ESP -->
-        <div class="feature-card">
-          <div class="card-icon cyan">
-            <i class="fa-regular fa-eye"></i>
-          </div>
-          <h3 class="card-title">Dynamic Visuals (ESP)</h3>
-          <p class="card-desc">
-            Corner & 2D boxes, bone skeleton tracking with head-point indicators, and gradient health bars.
-          </p>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-check"></i> Player Name, Distance & Weapon Badges</li>
-            <li><i class="fa-solid fa-check"></i> C4 Carrier & Blinded Status Alerts</li>
-            <li><i class="fa-solid fa-check"></i> 360° Offscreen Danger Arrows</li>
-            <li><i class="fa-solid fa-check"></i> Pixel-level X/Y fine-tuning per element</li>
-          </ul>
-        </div>
-
-        <!-- Feature 2: Combat & Aimbot -->
-        <div class="feature-card">
-          <div class="card-icon purple">
-            <i class="fa-solid fa-crosshairs"></i>
-          </div>
-          <h3 class="card-title">Combat & Humanized Aim</h3>
-          <p class="card-desc">
-            Smooth bone targeting with customizable recoil compensation (RCS) and pro humanizer curves.
-          </p>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-check"></i> Head, Neck, Chest & Pelvis hitbox selection</li>
-            <li><i class="fa-solid fa-check"></i> Micro overshoot, jitter & reaction delays</li>
-            <li><i class="fa-solid fa-check"></i> Smoke & Flash detection safety checks</li>
-            <li><i class="fa-solid fa-check"></i> pSilent Engine with 3D sphere FOV</li>
-          </ul>
-        </div>
-
-        <!-- Feature 3: Tactical 2D Radar -->
-        <div class="feature-card">
-          <div class="card-icon green">
-            <i class="fa-solid fa-map-location-dot"></i>
-          </div>
-          <h3 class="card-title">2D Radar & Callouts</h3>
-          <p class="card-desc">
-            Standalone floating 2D overview calibrated across 11 competitive maps with real-time zone callouts.
-          </p>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-check"></i> In-game zone names (Banana, Catwalk, A Site)</li>
-            <li><i class="fa-solid fa-check"></i> Player direction cones & health colors</li>
-            <li><i class="fa-solid fa-check"></i> Spectator Minimap overlay (<kbd>F5</kbd>)</li>
-            <li><i class="fa-solid fa-check"></i> Enemy-only filter hotkey (<kbd>TAB</kbd>)</li>
-          </ul>
-        </div>
-
-        <!-- Feature 4: Nade Helper & World -->
-        <div class="feature-card">
-          <div class="card-icon orange">
-            <i class="fa-solid fa-bomb"></i>
-          </div>
-          <h3 class="card-title">World & C4 Objective HUD</h3>
-          <p class="card-desc">
-            Floating C4 countdown panel with defuse kit tracking and instant blast radius safe/lethal warnings.
-          </p>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-check"></i> In-world 3D planted bomb timer (A/B site)</li>
-            <li><i class="fa-solid fa-check"></i> Grenade warning indicators with trajectories</li>
-            <li><i class="fa-solid fa-check"></i> Dropped weapons, ammo counters & dropped C4</li>
-            <li><i class="fa-solid fa-check"></i> Nade Helper lineup position manager</li>
-          </ul>
-        </div>
-
-        <!-- Feature 5: Crosshair Suite -->
-        <div class="feature-card">
-          <div class="card-icon cyan">
-            <i class="fa-solid fa-plus"></i>
-          </div>
-          <h3 class="card-title">Crosshair Engine (Sep 30)</h3>
-          <p class="card-desc">
-            Custom crosshair engine upgraded with all September 30 Valve patch settings and styles.
-          </p>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-check"></i> Classic Cross & <strong>Static Quadrant</strong></li>
-            <li><i class="fa-solid fa-check"></i> Customizable Outline thickness & RGBA color</li>
-            <li><i class="fa-solid fa-check"></i> Negative gap spacing support (-20px)</li>
-            <li><i class="fa-solid fa-check"></i> Scope Dot scale & color + Freeze-time grenade</li>
-          </ul>
-        </div>
-
-        <!-- Feature 6: Stream-Proof & Stealth -->
-        <div class="feature-card">
-          <div class="card-icon blue">
-            <i class="fa-solid fa-video-slash"></i>
-          </div>
-          <h3 class="card-title">Hardware Stream-Proof</h3>
-          <p class="card-desc">
-            True Windows Display Affinity exclusion prevents any visual leakage to streaming software.
-          </p>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-check"></i> 100% invisible on OBS Studio & Streamlabs</li>
-            <li><i class="fa-solid fa-check"></i> Discord screen share & clipping tools safe</li>
-            <li><i class="fa-solid fa-check"></i> Bunny Hop & Silent Reload mechanics</li>
-            <li><i class="fa-solid fa-check"></i> Native Windows File Explorer config dialogs</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Specs -->
-  <section class="section specs-section" id="specs">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Architecture</span>
-        <h2 class="section-title">Built for Ultra-Low Latency</h2>
-        <p class="section-desc">
-          Zero kernel drivers, zero intrusive hooks. Lightweight C++17 design with maximum compiler optimization.
-        </p>
-      </div>
-
-      <div class="specs-grid">
-        <div class="spec-card">
-          <div class="spec-header">
-            <span class="spec-label">Memory Architecture</span>
-            <span class="spec-val">Usermode NTAPI</span>
-          </div>
-          <p>Direct <code>NtReadVirtualMemory</code> access from ring 3 without vulnerable third-party kernel drivers.</p>
-        </div>
-
-        <div class="spec-card">
-          <div class="spec-header">
-            <span class="spec-label">Overlay Renderer</span>
-            <span class="spec-val">DirectX 11 + ImGui</span>
-          </div>
-          <p>Hardware-accelerated topmost window with zero input lag and variable refresh rate synchronization.</p>
-        </div>
-
-        <div class="spec-card">
-          <div class="spec-header">
-            <span class="spec-label">Entity Cache Rate</span>
-            <span class="spec-val">125 Hz Seqlock</span>
-          </div>
-          <p>Multi-threaded atomic snapshot cache reduces operating system memory query overhead by ~25×.</p>
-        </div>
-
-        <div class="spec-card">
-          <div class="spec-header">
-            <span class="spec-label">Binary Footprint</span>
-            <span class="spec-val">Statically Linked (/MT)</span>
-          </div>
-          <p>Standalone ~1.3 MB executable with zero external runtime dependencies (no VC++ Redistributable needed).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Setup & Keybindings -->
-  <section class="section setup-section" id="setup">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Quick Start</span>
-        <h2 class="section-title">Get Up and Running in 60 Seconds</h2>
-        <p class="section-desc">
-          No complicated injection or configuration. Download, launch, and play.
-        </p>
-      </div>
-
-      <div class="setup-grid">
-        <div class="setup-steps">
-          <div class="step-item">
-            <div class="step-num">1</div>
-            <div class="step-content">
-              <h4>Download the Package</h4>
-              <p>Download <code>mbw9-v3.3.zip</code> and extract all contents to any folder of your choice.</p>
-            </div>
-          </div>
-
-          <div class="step-item">
-            <div class="step-num">2</div>
-            <div class="step-content">
-              <h4>Launch Counter-Strike 2</h4>
-              <p>Start CS2 in <strong>Fullscreen Windowed</strong> (Borderless) or Windowed display mode.</p>
-            </div>
-          </div>
-
-          <div class="step-item">
-            <div class="step-num">3</div>
-            <div class="step-content">
-              <h4>Run External.exe</h4>
-              <p>Right-click <code>External.exe</code> and choose <strong>Run as Administrator</strong>.</p>
-            </div>
-          </div>
-
-          <div class="step-item">
-            <div class="step-num">4</div>
-            <div class="step-content">
-              <h4>Toggle Menu</h4>
-              <p>Press <kbd>INSERT</kbd> on your keyboard to configure your features.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hotkeys Table Card -->
-        <div class="keybinds-card">
-          <h3 class="keybinds-title"><i class="fa-solid fa-keyboard"></i> Key Reference</h3>
-          <div class="keybind-row">
-            <kbd>INSERT</kbd>
-            <span>Toggle main configuration interface</span>
-          </div>
-          <div class="keybind-row">
-            <kbd>ALT</kbd>
-            <span>Triggerbot hold-key (configurable)</span>
-          </div>
-          <div class="keybind-row">
-            <kbd>F5</kbd>
-            <span>Toggle spectator 2D overview map</span>
-          </div>
-          <div class="keybind-row">
-            <kbd>TAB</kbd>
-            <span>Toggle enemy-only filtering in Positions</span>
-          </div>
-          <div class="keybind-row">
-            <kbd>MOUSE</kbd>
-            <span>Drag and drop radar, HUDs & menu panels</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download Section -->
-  <section class="section download-section" id="download">
-    <div class="container">
-      <div class="download-card">
-        <div class="download-header">
-          <div class="badge-pill">Version 3.3 • September 30 2026 Sync</div>
-          <h2 class="download-title">Ready to Enhance Your Gameplay?</h2>
-          <p class="download-desc">
-            Download the complete standalone package with radar assets, icon fonts, and the compiled executable.
-          </p>
-        </div>
-
-        <div class="download-box">
-          <div class="file-info">
-            <i class="fa-solid fa-file-zipper file-icon"></i>
-            <div>
-              <strong>mbw9-v3.3.zip</strong>
-              <small>Standalone Release Package • 4.10 MB</small>
-            </div>
-          </div>
-          <a href="mbw9-v3.3.zip" download class="btn btn-download-primary">
-            <i class="fa-solid fa-download"></i>
-            <span>Download .ZIP</span>
+        <div class="hero-actions">
+          <a href="mbw9-v3.3.zip" download class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download v3.3 (.zip)
           </a>
-        </div>
-
-        <div class="download-alternatives">
-          <a href="https://github.com/AbdooMrini/cs2-mbw9-release/releases" target="_blank" rel="noopener">
-            <i class="fa-brands fa-github"></i> View GitHub Releases
+          <a href="https://github.com/AbdooMrini/cs2-mbw9-release" target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="fa-brands fa-github"></i> GitHub
           </a>
-          <span>•</span>
-          <a href="https://discord.gg/A34uD5RKa" target="_blank" rel="noopener">
-            <i class="fa-brands fa-discord"></i> Community & Config Sharing
+          <a href="https://discord.gg/j88M4gwdG" target="_blank" rel="noopener" class="btn btn-discord">
+            <i class="fa-brands fa-discord"></i> Discord
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="section faq-section" id="faq">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Troubleshooting</span>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-      </div>
-
-      <div class="faq-accordion">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Do I need to install Visual C++ Redistributable or DirectX SDK?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>No. The binary is statically compiled (/MT) with all runtime dependencies baked into the executable. It runs out of the box on clean Windows 10 and Windows 11 systems.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Why must I run the executable as Administrator?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Windows requires elevated permissions to allow usermode memory read routines (<code>NtReadVirtualMemory</code>) to query another 64-bit application process.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Is the overlay really invisible on OBS and Discord?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. The DirectX 11 transparent overlay window uses Windows Display Affinity API (<code>WDA_EXCLUDEFROMCAPTURE</code>) which instructs the OS compositor to exclude the overlay frame from all screen capture APIs.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Where are configurations saved?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Configurations are stored as human-readable <code>.ini</code> files in the executable's directory. You can also import or export profiles anywhere using the native Windows file dialog under the Config tab.</p>
-          </div>
-        </div>
+      <div class="hero-image">
+        <img src="menu-image.png" alt="mbw9 menu preview">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-left">
-        <div class="brand">
-          <img src="LOGO.png" alt="mbw9 logo" class="brand-logo" onerror="this.style.display='none'">
-          <span class="brand-name">mbw<span>9</span></span>
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-item">
+    <div class="stat-val">NTAPI</div>
+    <div class="stat-label">No kernel driver</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">125 Hz</div>
+    <div class="stat-label">Entity tick cache</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">Stream-Proof</div>
+    <div class="stat-label">OBS / Discord invisible</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">~1.3 MB</div>
+    <div class="stat-label">Static binary, no deps</div>
+  </div>
+</div>
+
+<!-- Preview -->
+<section class="section" id="preview">
+  <div class="container">
+    <div class="section-label">Interface</div>
+    <h2 class="section-title">Clean ImGui Dark UI</h2>
+    <p class="section-desc">Tabbed sidebar layout, real-time hardware metrics, and sub-pixel fine tuning on every element.</p>
+    <div class="preview-wrap">
+      <div class="preview-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        &nbsp; mbw9 — Premium Build v3.3 &nbsp;·&nbsp; CS2 Connected &nbsp;·&nbsp; NTAPI · 240 FPS
+        &nbsp;&nbsp;
+        <kbd>INSERT</kbd>&nbsp; toggle menu
+      </div>
+      <img src="menu-image.png" alt="mbw9 CS2 cheat menu">
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Complete Tactical Toolkit</h2>
+    <p class="section-desc">Every module is toggle-based, keybind-configurable, and saved to named config profiles.</p>
+
+    <div class="feature-grid">
+
+      <div class="feature-cell">
+        <div class="feature-icon"><i class="fa-regular fa-eye"></i></div>
+        <div class="feature-name">Visuals (ESP)</div>
+        <div class="feature-desc">2D corner/full boxes, bone skeleton, gradient health bars, name/weapon/distance labels, snaplines, 360° offscreen arrows. Pixel-level per-element fine tuning.</div>
+        <div class="feature-tags">
+          <span class="tag">Bounding Box</span>
+          <span class="tag">Skeleton</span>
+          <span class="tag">Health Bar</span>
+          <span class="tag">Offscreen</span>
         </div>
-        <p class="footer-copy">
-          Designed for research and educational purposes. Not affiliated with Valve Corporation.
-        </p>
       </div>
 
-      <div class="footer-links">
-        <a href="https://github.com/AbdooMrini/cs2-mbw9-release" target="_blank" rel="noopener">
-          <i class="fa-brands fa-github"></i> GitHub
+      <div class="feature-cell">
+        <div class="feature-icon"><i class="fa-solid fa-crosshairs"></i></div>
+        <div class="feature-name">Combat & Aimbot</div>
+        <div class="feature-desc">Smooth bone targeting, configurable RCS, pro humanizer with micro overshoot and reaction jitter, pSilent engine with 3D sphere FOV and tick sync.</div>
+        <div class="feature-tags">
+          <span class="tag">Humanizer</span>
+          <span class="tag">RCS</span>
+          <span class="tag">pSilent</span>
+          <span class="tag">Triggerbot</span>
+        </div>
+      </div>
+
+      <div class="feature-cell">
+        <div class="feature-icon"><i class="fa-solid fa-plus"></i></div>
+        <div class="feature-name">Crosshair Engine</div>
+        <div class="feature-desc">Custom overlay crosshair with two styles, outline system, negative gap support, scope dot control, and freeze-time grenade crosshair.</div>
+        <div class="feature-tags">
+          <span class="tag new">Static Quadrant</span>
+          <span class="tag new">Outline</span>
+          <span class="tag new">Scope Dot</span>
+          <span class="tag new">Sep 30</span>
+        </div>
+      </div>
+
+      <div class="feature-cell">
+        <div class="feature-icon"><i class="fa-solid fa-map"></i></div>
+        <div class="feature-name">Radar & Callouts</div>
+        <div class="feature-desc">Standalone 2D radar window across 11 competitive maps. Player Positions HUD with real-time zone callouts. Spectator minimap on F5.</div>
+        <div class="feature-tags">
+          <span class="tag">2D Radar</span>
+          <span class="tag">Zone Labels</span>
+          <span class="tag">Spectator Map</span>
+        </div>
+      </div>
+
+      <div class="feature-cell">
+        <div class="feature-icon"><i class="fa-solid fa-bomb"></i></div>
+        <div class="feature-name">World & C4 HUD</div>
+        <div class="feature-desc">Draggable C4 countdown with defuse kit detection and SAFE/LETHAL indicator. In-world bomb timer, grenade warnings, dropped weapon ESP.</div>
+        <div class="feature-tags">
+          <span class="tag">Bomb HUD</span>
+          <span class="tag">Grenade Warn</span>
+          <span class="tag">Nade Helper</span>
+        </div>
+      </div>
+
+      <div class="feature-cell">
+        <div class="feature-icon"><i class="fa-solid fa-gear"></i></div>
+        <div class="feature-name">Misc & Protection</div>
+        <div class="feature-desc">Bunny hop, FOV changer, no-flash with adjustable alpha, silent reload automation, stream-proof via WDA_EXCLUDEFROMCAPTURE, config profiles.</div>
+        <div class="feature-tags">
+          <span class="tag">Bhop</span>
+          <span class="tag">No Flash</span>
+          <span class="tag">Silent Reload</span>
+          <span class="tag">Config</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Technical Specs -->
+<section class="section" id="specs">
+  <div class="container">
+    <div class="section-label">Architecture</div>
+    <h2 class="section-title">Technical Specifications</h2>
+    <p class="section-desc">Zero kernel driver, zero external runtime dependencies, pure usermode C++17.</p>
+
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Specification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Memory Engine</td><td><code>NtReadVirtualMemory</code> — direct NTAPI, ring 3 usermode</td></tr>
+        <tr><td>Overlay Renderer</td><td>DirectX 11 transparent topmost window + ImGui</td></tr>
+        <tr><td>Capture Protection</td><td><code>WDA_EXCLUDEFROMCAPTURE</code> — invisible on OBS, Discord, Twitch</td></tr>
+        <tr><td>Entity Cache</td><td>Multi-threaded seqlock snapshot ~125 Hz — reduces memory calls ×25</td></tr>
+        <tr><td>Runtime Dependencies</td><td>None — statically compiled <code>/MT</code>, no VC++ redistributable</td></tr>
+        <tr><td>Toolchain</td><td>MSVC 2022 · <code>/O2 /GL /MT /std:c++17</code></td></tr>
+        <tr><td>Architecture</td><td>x64 only</td></tr>
+        <tr><td>CS2 Build Sync</td><td>Build 14188 — September 30 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Setup -->
+<section class="section" id="setup">
+  <div class="container" style="display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start">
+    <div>
+      <div class="section-label">Setup</div>
+      <h2 class="section-title">Get Started in 60 Seconds</h2>
+      <p class="section-desc" style="margin-bottom:0">No drivers, no installers, no configuration required out of the box.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Extract the ZIP</h4>
+            <p>Download <code>mbw9-v3.3.zip</code> and extract all files into a single folder. Keep them together.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Launch Counter-Strike 2</h4>
+            <p>Use <strong>Fullscreen Windowed</strong> (Borderless) or <strong>Windowed</strong> display mode.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Run as Administrator</h4>
+            <p>Right-click <code>External.exe</code> → <strong>Run as administrator</strong> (required for NTAPI access).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h4>Press INSERT</h4>
+            <p>Toggle the configuration menu with <kbd>INSERT</kbd> at any time while in-game.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Keybinds</div>
+      <h2 class="section-title">Hotkeys</h2>
+      <p class="section-desc" style="margin-bottom:0">Most keys are configurable from the menu.</p>
+      <div class="keybinds">
+        <div class="kb-row"><kbd>INSERT</kbd><span>Toggle menu</span></div>
+        <div class="kb-row"><kbd>ALT</kbd><span>Triggerbot hold-key</span></div>
+        <div class="kb-row"><kbd>F5</kbd><span>Spectator minimap</span></div>
+        <div class="kb-row"><kbd>TAB</kbd><span>Enemy-only filter in Positions</span></div>
+        <div class="kb-row"><kbd>Drag</kbd><span>Move radar / bomb panel / menu</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Download -->
+<section class="section" id="download">
+  <div class="container">
+    <div class="dl-card">
+      <h2>Download mbw9 v3.3</h2>
+      <p>Full standalone package. No separate runtime install required.</p>
+
+      <div style="display:inline-block">
+        <div class="dl-file-row">
+          <i class="fa-solid fa-file-zipper"></i>
+          <div class="dl-file-info">
+            <strong>mbw9-v3.3.zip</strong>
+            <small>External.exe · LOGO.png · fonts · map/ · radar_data.json · 4.1 MB</small>
+          </div>
+          <a href="mbw9-v3.3.zip" download class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download
+          </a>
+        </div>
+      </div>
+
+      <div class="dl-links">
+        <a href="https://github.com/AbdooMrini/cs2-mbw9-release/releases" target="_blank" rel="noopener">
+          <i class="fa-brands fa-github"></i> Releases
         </a>
-        <a href="https://discord.gg/A34uD5RKa" target="_blank" rel="noopener">
+        <span>·</span>
+        <a href="https://discord.gg/j88M4gwdG" target="_blank" rel="noopener">
           <i class="fa-brands fa-discord"></i> Discord
         </a>
-        <a href="https://github.com/AbdooMrini/cs2-mbw9-release/releases" target="_blank" rel="noopener">
-          <i class="fa-solid fa-tag"></i> Releases
-        </a>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="app.js"></script>
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q"><span>Do I need to install Visual C++ or DirectX SDK?</span><i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-a">No. The binary is statically compiled with all runtime dependencies included. It runs on a clean Windows 10/11 installation with nothing extra needed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Why does it need Administrator?</span><i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-a">Windows requires elevated privileges for usermode cross-process memory reads via <code>NtReadVirtualMemory</code>. No kernel driver is loaded.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Is the overlay really invisible on OBS and Discord?</span><i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-a">Yes. The overlay window uses <code>SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)</code> which tells the Windows compositor to exclude it from all capture APIs system-wide.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Where are config profiles saved?</span><i class="fa-solid fa-chevron-down"></i></button>
+        <div class="faq-a">Config files are saved as <code>.ini</code> files in the same directory as the executable. You can load and save anywhere using the native Windows file dialog in the Config tab.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">mbw<span>9</span></div>
+      <div class="footer-copy">Educational and research purposes only. Not affiliated with Valve Corporation.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/AbdooMrini/cs2-mbw9-release" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://discord.gg/j88M4gwdG" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i> Discord</a>
+      <a href="https://github.com/AbdooMrini/cs2-mbw9-release/releases" target="_blank" rel="noopener"><i class="fa-solid fa-tag"></i> Releases</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

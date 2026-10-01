@@ -1,6 +1,6 @@
-<div align="center">
+﻿<div align="center">
 
-# mbw9 — CS2 External (Premium Build v3.3)
+# mbw9 â€” CS2 External (Premium Build v3.3)
 
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011%20(x64)-0078D6?style=for-the-badge&logo=windows)
 ![Graphics](https://img.shields.io/badge/Renderer-DirectX%2011%20%2B%20ImGui-blueviolet?style=for-the-badge)
@@ -13,7 +13,8 @@
   Equipped with DirectX 11 rendering, ultra-low latency NTAPI memory reads, full tactical radar, smart aimbot, and customizable crosshairs.
 </p>
 
-[![Discord](https://img.shields.io/badge/Join%20our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/j88M4gwdG)
+[![Website](https://img.shields.io/badge/Website-Live%20Demo-00d4ff?style=for-the-badge&logo=githubpages&logoColor=white)](https://abdoomrini.github.io/cs2-mbw9-release/)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/j88M4gwdG)
 
 ---
 
@@ -23,7 +24,7 @@
 
 ---
 
-## ⚡ Quick Start
+## âš¡ Quick Start
 
 ### 1. Requirements
 * **Operating System**: Windows 10 (1903+) or Windows 11 (64-bit).
@@ -51,7 +52,7 @@ Extract all files into the **exact same directory**:
 
 ---
 
-## ⌨️ Default Keybindings
+## âŒ¨ï¸ Default Keybindings
 
 | Key | Function | Description |
 | :---: | :--- | :--- |
@@ -63,17 +64,17 @@ Extract all files into the **exact same directory**:
 
 ---
 
-## 🌟 Feature Breakdown
+## ðŸŒŸ Feature Breakdown
 
-### 👁️ Visuals (ESP)
+### ðŸ‘ï¸ Visuals (ESP)
 * **2D Bounding Box**: Classic full box or corner frame with customizable thickness, corner length, and team-specific colors.
 * **Dynamic Health Bar**: Left/Right/Top/Bottom positioning with automatic Green-to-Red health gradients.
 * **Bone Skeleton**: High-precision bone joints with head-point indicators and background drop-shadows.
 * **Player Info Badges**: Real-time Player Name, Active Weapon with icon, Distance (meters), C4 Carrier tag, and Flash/Blind state.
-* **Snaplines & Indicators**: Target tracer lines from Top, Bottom, or Screen Center + 360° offscreen directional arrows.
+* **Snaplines & Indicators**: Target tracer lines from Top, Bottom, or Screen Center + 360Â° offscreen directional arrows.
 * **Pixel Tuning**: Dedicated advanced customization panel for pixel-level offset adjustment on every element.
 
-### 🎯 Combat & Aimbot
+### ðŸŽ¯ Combat & Aimbot
 * **Smart Aimbot**: Smoothing curve, dynamic FOV circle, and bone selection (Head, Neck, Chest, Pelvis).
 * **Target Priority**: Nearest to Crosshair or Lowest HP targeting algorithms.
 * **Advanced Safety Checks**: Visibility verification (spotted mask), Smoke Check, and Flash Check.
@@ -81,24 +82,24 @@ Extract all files into the **exact same directory**:
 * **Humanizer Engine**: Natural micro-overshoot, aim deceleration, reaction-time jitter, and target velocity prediction.
 * **pSilent Engine**: Silent aim calculation with 3D spherical FOV and tick synchronization.
 
-### ⚡ Triggerbot
+### âš¡ Triggerbot
 * **Instant & Magnet Trigger**: Fires automatically upon crosshair intersection.
 * **Scoped Only Filter**: Optional safety filter strictly active when snipers are zoomed in.
 * **Delay Variance**: Humanized pre-fire and post-fire millisecond randomize delays.
 * **Pistol Rapid Fire & Burst**: Automatic cycle for semi-automatic handguns and rifles.
 
-### 🗺️ Radar & Tactical Minimap
+### ðŸ—ºï¸ Radar & Tactical Minimap
 * **Standalone 2D Radar**: Floating, draggable radar window with clean player blips, health colors, and look-direction cones.
 * **Player Positions HUD**: Real-time in-game callout display (e.g. *Banana*, *A Site*, *Catwalk*, *Apartments*).
 * **Spectator Map**: Tactical bird's-eye map displaying all player positions when eliminated or spectating (`F5`).
 
-### 💣 World & Objective
+### ðŸ’£ World & Objective
 * **Bomb HUD Panel**: Floating draggable C4 countdown timer, defuse kit detection, and lethal radius indicator (**SAFE / LETHAL**).
 * **Planted C4 3D ESP**: World-space marker highlighting plant site (**A** or **B**) and remaining detonation seconds.
 * **Grenade Warning & Projectiles**: Real-time grenade tracking with trajectory lines and offscreen danger alerts.
 * **Dropped Weapons & Items**: World labels for dropped rifles, pistols, grenades, and bomb carrier drops with ammo counts.
 
-### ⚙️ Crosshairs & Misc
+### âš™ï¸ Crosshairs & Misc
 * **Custom Crosshairs**:
   * **Styles**: Classic Cross & new **Static Quadrant**.
   * **Outline System**: Toggleable outline with dedicated color picker and thickness control.
@@ -106,19 +107,19 @@ Extract all files into the **exact same directory**:
   * **Scope Dot Control**: Custom scope reticle center dot with scale and RGBA color adjustment.
   * **Freeze Time Grenade Crosshair**: Automatically displays grenade lineup crosshair during freeze time.
 * **Movement**: Automatic Bunny Hop with strafe synchronization.
-* **Camera Customization**: In-game FOV Changer (60°–140°) and View Offset tuning (X/Y/Z).
+* **Camera Customization**: In-game FOV Changer (60Â°â€“140Â°) and View Offset tuning (X/Y/Z).
 * **Visual Protections**: No Flash effect with variable opacity slider (0% to 100%).
 * **Silent Reload**: CS2 quiet reload mechanic automation (inaudible to enemy players).
 * **Stream-Proof**: Hardware-level `WDA_EXCLUDEFROMCAPTURE` protects against Discord, OBS, and Twitch capture tools.
 
-### 💾 Profile Management & Engine
+### ðŸ’¾ Profile Management & Engine
 * **Config Profiles**: Save and load instant presets to `.ini` format.
 * **Native File Dialog**: Load and export configurations directly from standard Windows File Explorer dialogs.
-* **Tick Cache**: 125 Hz thread-safe seqlock entity snapshot system reducing memory access calls by 25×.
+* **Tick Cache**: 125 Hz thread-safe seqlock entity snapshot system reducing memory access calls by 25Ã—.
 
 ---
 
-## 🛠️ Architecture & Specifications
+## ðŸ› ï¸ Architecture & Specifications
 
 | Component | Specification |
 | :--- | :--- |
@@ -131,7 +132,7 @@ Extract all files into the **exact same directory**:
 
 ---
 
-## 📝 Changelog (v3.3)
+## ðŸ“ Changelog (v3.3)
 
 * **Crosshair Engine Expansion**:
   * Added **Crosshair Outline** with custom color palette and thickness slider.
@@ -148,7 +149,7 @@ Extract all files into the **exact same directory**:
 
 ---
 
-## 💬 Community & Support
+## ðŸ’¬ Community & Support
 
 Join the community Discord server for updates, profiles, and assistance:
 
@@ -156,6 +157,7 @@ Join the community Discord server for updates, profiles, and assistance:
 
 ---
 
-## ⚠️ Disclaimer
+## âš ï¸ Disclaimer
 
 This project is created strictly for **educational and reverse-engineering research purposes**. Using third-party software in online matchmaking violates Valve's Terms of Service and may result in account penalties. Use at your own risk.
+
