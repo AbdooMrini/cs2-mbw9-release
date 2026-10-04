@@ -1,12 +1,12 @@
 <div align="center">
 
-# mbw9 — CS2 External (Premium Build v3.3)
+# mbw9 — CS2 External (Premium Build v3.4)
 
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011%20(x64)-0078D6?style=for-the-badge&logo=windows)
 ![Graphics](https://img.shields.io/badge/Renderer-DirectX%2011%20%2B%20ImGui-blueviolet?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Bypass-Usermode%20NTAPI%20(No%20Driver)-success?style=for-the-badge)
 ![Stream Proof](https://img.shields.io/badge/Stream%20Proof-OBS%20%2F%20Discord%20Safe-orange?style=for-the-badge)
-![Game](https://img.shields.io/badge/CS2-Updated%20(Build%2014188)-red?style=for-the-badge)
+![Game](https://img.shields.io/badge/CS2-Updated%20(Build%2014243)-red?style=for-the-badge)
 
 <p align="center">
   <b>High-performance, driverless external overlay for Counter-Strike 2.</b><br>
@@ -132,7 +132,18 @@ Extract all files into the **exact same directory**:
 
 ---
 
-## 📋 Changelog (v3.3)
+## 📋 Changelog (v3.4)
+
+* **Engine Sync (Oct 2 2026)**:
+  * Synced offsets with Valve CS2 client update **(Build 14243)**.
+  * Stability improvements across entity loop and overlay renderer.
+  * Grenade crosshair rendering fix when crosshair thickness is set to **3 pixels**.
+  * Fixed formatting of titles in **commend and report dialogs**.
+  * Improved lighting compatibility with the **Warehouse** map.
+  * Updated workshop convars whitelist with the new crosshair settings.
+
+<details>
+<summary>v3.3 — Sep 30 2026</summary>
 
 * **Crosshair Engine Expansion**:
   * Added **Crosshair Outline** with custom color palette and thickness slider.
@@ -146,6 +157,8 @@ Extract all files into the **exact same directory**:
 * **Engine Sync**:
   * Synced offsets with Valve CS2 client update (Build 14188).
   * Optimized memory reading throughput in entity loop.
+
+</details>
 
 ---
 

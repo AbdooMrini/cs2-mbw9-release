@@ -1,9 +1,9 @@
 // Single place to update on each release.
 const RELEASE = {
-  version: '3.3',
-  build: '14188',
-  date: 'Sep 30 2026',
-  zip: 'mbw9-v3.3.zip',
+  version: '3.4',
+  build: '14243',
+  date: 'Oct 2 2026',
+  zip: 'mbw9-v3.4.zip',
   github: 'https://github.com/AbdooMrini/cs2-mbw9-release',
   discord: 'https://discord.gg/A34uD5RKa'
 };
