@@ -1,12 +1,12 @@
 <div align="center">
 
-# mbw9 — CS2 External (Premium Build v3.5)
+# mbw9 — CS2 External (Premium Build v3.6)
 
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011%20(x64)-0078D6?style=for-the-badge&logo=windows)
 ![Graphics](https://img.shields.io/badge/Renderer-DirectX%2011%20%2B%20ImGui-blueviolet?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Bypass-Usermode%20NTAPI%20(No%20Driver)-success?style=for-the-badge)
 ![Stream Proof](https://img.shields.io/badge/Stream%20Proof-OBS%20%2F%20Discord%20Safe-orange?style=for-the-badge)
-![Game](https://img.shields.io/badge/CS2-Updated%20(Build%2014268)-red?style=for-the-badge)
+![Game](https://img.shields.io/badge/CS2-Updated%20(Build%2014190)-red?style=for-the-badge)
 
 <p align="center">
   <b>High-performance, driverless external overlay for Counter-Strike 2.</b><br>
@@ -132,13 +132,25 @@ Extract all files into the **exact same directory**:
 
 ---
 
-## 📋 Changelog (v3.5)
+## 📋 Changelog (v3.6)
+
+* **Engine Sync (Oct 8 2026)**:
+  * Synced offsets with Valve CS2 client update **(Build 14190)**.
+  * Added compatibility for dropped defuse kit ping updates.
+  * AUG weapon timing updates sync (0.5s reload adjustment).
+  * Desert Eagle silent reload sound event sync and Rush maps clipping adjustments.
+  * Stability and localization improvements pass.
+
+<details>
+<summary>v3.5 — Oct 5 2026</summary>
 
 * **Engine Sync (Oct 5 2026)**:
   * Synced offsets with Valve CS2 client update **(Build 14268)**.
   * Adjusted VK shader cache extension flags compatibility.
   * Workshop map play menu button detection.
   * Stability pass.
+
+</details>
 
 <details>
 <summary>v3.4 — Oct 2 2026</summary>
